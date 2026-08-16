@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CS 499 Computer Science ePortfolio for Isaiah Moore">
+<title>Travlr Getaways | Isaiah Moore</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header><nav class="site-nav" aria-label="Main navigation">
+<a class="brand" href="index.html">Isaiah Moore <span>CS 499 ePortfolio</span></a>
+<div class="nav-links">
+<a href="index.html">Self-Assessment</a>
+<a href="code-review.html">Code Review</a>
+<a href="software-design.html">Software Design</a>
+<a href="algorithms.html">Algorithms</a>
+<a href="databases.html" aria-current="page">Databases</a>
+</div>
+</nav></header>
+<main id="main">
+<section class="hero compact">
+<div class="hero-copy"><p class="eyebrow">Databases</p><h1>Travlr Getaways</h1><p class="lede">A MEAN-style travel application enhanced at the schema, controller, and route layers to improve data integrity, API consistency, CRUD completeness, and authorization.</p></div>
+</section>
+
+<section class="project-overview">
+<div class="overview-copy"><p class="eyebrow">CS 465 • Databases</p><h2>Travlr Getaways</h2><p>A MEAN-style travel application enhanced at the schema, controller, and route layers to improve data integrity, API consistency, CRUD completeness, and authorization.</p><div class="chip-row"><span>MongoDB</span><span>Mongoose</span><span>Express</span><span>REST API</span><span>JWT</span></div></div>
+<div class="metric-grid"><div><strong>3</strong><span>Changed Source Files</span></div><div><strong>Complete</strong><span>CRUD</span></div><div><strong>JWT Protected</strong><span>Admin Writes</span></div></div>
+</section>
+<section class="artifact-actions">
+<div><h2>Artifact Files</h2><p>Compare the original course submission with the enhanced CS 499 version.</p></div>
+<div class="button-group"><a class="button secondary" href="artifacts/databases/CS465_Travlr_Original.zip">Original artifact (.zip)</a><a class="button" href="artifacts/databases/CS465_Travlr_Enhanced.zip">Enhanced artifact (.zip)</a><a class="button secondary" href="artifacts/databases/CS465_Travlr_Narrative_Isaiah_Moore.docx">Narrative (.docx)</a></div>
+</section>
+<section class="highlights"><div class="section-heading"><p class="eyebrow">Enhancement Highlights</p><h2>What changed</h2></div><ul><li><strong>Stronger schema rules:</strong> trip records enforce format, length, trimming, uniqueness, date, and nonnegative-price requirements.</li><li><strong>Predictable API behavior:</strong> validation, duplicate, cast, not-found, and unexpected database errors return meaningful status codes and messages.</li><li><strong>Correct record lookup and updates:</strong> findOne handles missing trips clearly, while updates run validators and return the updated document.</li><li><strong>Completed CRUD:</strong> a DELETE controller and protected route were added.</li><li><strong>Corrected authorization flow:</strong> JWT middleware calls next() only after successful verification and rejects invalid or expired tokens.</li></ul><p class="note">The enhancement intentionally stayed focused on the database/API path. The final version modified <code>app_api/models/travlr.js</code>, <code>app_api/controllers/trips.js</code>, and <code>app_api/routes/index.js</code>.</p></section>
+<section class="prose narrative">
+<div class="section-heading"><p class="eyebrow">Artifact Narrative</p><h2>Enhancement narrative</h2></div>
+<section class="narrative-section"><h2>Artifact Description</h2>
+<p>The artifact I selected for this enhancement is my Travlr Getaways Web Application, which was originally created in CS-465 Full Stack Development in 2025. It is a full-stack travel application built using a MEAN-style architecture. The project uses MongoDB and Mongoose for persistent data storage, Express and Node.js for the server and API, and Angular for the administrative interface. It allows trip information to be stored, displayed, created, and updated through database-backed API operations.</p>
+<p>The original version demonstrated database connectivity, Mongoose models, API routing, authentication, and communication between the front end and the database. For CS-499, I enhanced the application’s schema validation, error handling, CRUD functionality, and protection of administrative operations. The application still serves the same purpose, but its database interactions are now safer, more consistent, and more complete.</p>
+</section>
+<section class="narrative-section"><h2>Justification for Inclusion in the ePortfolio and Summary of Changes</h2>
+<p>I selected this artifact because it demonstrates my growth in database design, full-stack development, API development, and secure data access. The original project met the requirements of CS-465, but the database schema provided only basic required-field validation. Updates did not run the same validators as newly created records, API errors were handled inconsistently, the application did not support deleting trips, and the authentication middleware contained a control-flow problem.</p>
+<p>One of the main improvements was strengthening the Mongoose trip schema. I added custom required-field messages, whitespace trimming, minimum and maximum lengths, unique trip codes, and format restrictions. Trip codes must now contain only uppercase letters and numbers, while fields such as the trip name, resort, image reference, and description have reasonable length limits. I also added validation to ensure that the price represents a valid, nonnegative number.</p>
+<p>These changes improve data integrity by preventing incomplete, duplicate, or improperly formatted records from being stored. They also provide clearer validation messages when submitted data does not meet the database rules.</p>
+<p>I also refactored the trip controllers to use structured try-and-catch handling. The original code contained branches that attempted to return an undefined error variable, which could create another error rather than explaining the original problem. The enhanced controller now distinguishes between invalid data, duplicate trip codes, missing records, and unexpected server failures. It returns appropriate HTTP responses such as 400 for invalid input, 404 for missing trips, 409 for duplicate codes, and 500 for unexpected database errors.</p>
+<p>The single-trip query was changed from a general find operation to findOne. This makes the expected result clearer and allows the API to accurately determine whether a trip exists. I also enabled runValidators during updates so modified records must follow the same schema rules as newly created records. The updated document is returned after a successful change, while a missing trip produces a clear 404 response.</p>
+<p>Another important improvement was the addition of a delete operation. The original application supported creating, reading, and updating trip records but did not provide a way to remove them. I added a protected DELETE endpoint that locates a trip by its code and removes it from the database. This completes the server-side create, read, update, and delete workflow.</p>
+<p>The authentication middleware was also corrected. In the original version, the next route function could run before token verification had succeeded. The enhanced middleware now checks for a properly formatted Bearer token, verifies it, returns a 401 Unauthorized response when verification fails, and continues to the protected controller only after successful verification. The create, update, and delete operations are protected, while public read operations remain accessible without authentication.</p>
+<p>I included this artifact because it shows more than the ability to connect an application to MongoDB. It demonstrates that I can review an existing full-stack system, identify weaknesses across the schema, controllers, routes, and authentication logic, and make improvements that increase data integrity, reliability, maintainability, and security.</p>
+</section>
+<section class="narrative-section"><h2>Course Outcomes</h2>
+<p>This enhancement met the course outcomes I planned to address in Module One. The artifact primarily demonstrates my ability to design and evaluate computing solutions using appropriate computer science practices. I examined how the schema, controllers, database operations, API responses, and authentication middleware worked together and selected changes based on the needs of the application.</p>
+<p>The enhancement also supports the outcome related to using tools and techniques to deliver value. I used MongoDB, Mongoose, Express, REST-style API operations, and JSON Web Token authentication to create more predictable database behavior and complete the application’s server-side CRUD functionality.</p>
+<p>It also supports professional communication because the changes can be explained through focused examples of schema validation, API error handling, database operations, and protected routes. The code and accompanying narrative show both what was changed and why the changes were necessary.</p>
+<p>Secure development practices were another important part of the enhancement. The application now treats submitted data and administrative requests as untrusted until they have been validated. Invalid records are rejected before being stored, and database-changing operations require successful token verification.</p>
+<p>I do not have any major updates to my outcome-coverage plan. This artifact remains my strongest evidence of database development and full-stack data handling. I kept the enhancement focused on the server-side database and API layers rather than expanding it into a complete redesign of the Angular interface.</p>
+</section>
+<section class="narrative-section"><h2>Reflection on the Enhancement Process</h2>
+<p>The process of enhancing this artifact helped me understand that database validation should involve more than checking whether a field is present. A field may exist while still containing inconsistent or unusable data. Adding format, length, uniqueness, type, and value restrictions showed me how the schema can protect the quality of stored information.</p>
+<p>I also learned the importance of applying validation consistently. The original application validated newly created records through the schema, but updates could bypass some of those rules. Adding runValidators ensured that create and update operations follow the same expectations.</p>
+<p>One challenge was improving the data model without unnecessarily breaking the existing application. For example, the price field was already represented as a string. Changing its type could have required updates across other parts of the project. Instead, I preserved the original format while adding a custom validator that confirms the value represents a valid, nonnegative number. This taught me that improving an existing system sometimes requires balancing ideal design choices with compatibility.</p>
+<p>Improving the API responses also helped me better understand how status codes communicate the result of an operation. Invalid input, duplicate data, missing records, unauthorized requests, and server failures should not all produce the same response. Distinguishing these conditions makes the API easier to use, test, and maintain.</p>
+<p>The authentication middleware was one of the most important challenges. The project already used JSON Web Tokens, but the placement of the next function weakened the protection it was supposed to provide. Correcting the control flow showed me that using a security library is not enough by itself. The surrounding application logic must also ensure that protected operations only continue after verification succeeds.</p>
+<p>Adding the delete endpoint reinforced the importance of integrating new functionality with the rest of the application. The operation needed to work with the database model, controller, route, authentication middleware, and error-handling structure. Completing CRUD required more than adding a single database command.</p>
+<p>I also learned the value of maintaining a focused scope. The Travlr application includes several layers, and it would have been possible to continue expanding the enhancement into the Angular interface, configuration files, and additional features. Concentrating on the schema, controllers, routes, and authentication allowed me to make meaningful improvements that remained directly connected to the database category.</p>
+<p>One area for future improvement would be adding automated API tests for invalid records, duplicate codes, unauthorized requests, missing trips, updates, and deletions. Manual testing can confirm the main behavior, but repeatable tests would provide stronger protection against future changes.</p>
+<p>Overall, this enhancement strengthened my understanding of database schema design, server-side validation, API behavior, CRUD operations, error handling, and authentication. The final artifact remains recognizable as the original Travlr Getaways application, but it now better represents my current abilities as a computer science student and developer.</p>
+</section>
+</section>
+
+
+</main>
+<footer><p>Isaiah Moore • CS 499 Computer Science Capstone • Southern New Hampshire University</p></footer>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CS 499 Computer Science ePortfolio for Isaiah Moore">
+<title>Weight Tracking Application | Isaiah Moore</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header><nav class="site-nav" aria-label="Main navigation">
+<a class="brand" href="index.html">Isaiah Moore <span>CS 499 ePortfolio</span></a>
+<div class="nav-links">
+<a href="index.html">Self-Assessment</a>
+<a href="code-review.html">Code Review</a>
+<a href="software-design.html" aria-current="page">Software Design</a>
+<a href="algorithms.html">Algorithms</a>
+<a href="databases.html">Databases</a>
+</div>
+</nav></header>
+<main id="main">
+<section class="hero compact">
+<div class="hero-copy"><p class="eyebrow">Software Design &amp; Engineering</p><h1>Weight Tracking Application</h1><p class="lede">An Android application enhanced to separate responsibilities, protect credentials, isolate user data, strengthen validation, and make important non-UI behavior testable.</p></div>
+</section>
+
+<section class="project-overview">
+<div class="overview-copy"><p class="eyebrow">CS 360 • Software Design &amp; Engineering</p><h2>Weight Tracking Application</h2><p>An Android application enhanced to separate responsibilities, protect credentials, isolate user data, strengthen validation, and make important non-UI behavior testable.</p><div class="chip-row"><span>Java</span><span>Android</span><span>SQLite</span><span>JUnit</span><span>Secure Design</span></div></div>
+<div class="metric-grid"><div><strong>2025</strong><span>Original Course</span></div><div><strong>Enhanced</strong><span>Validation &amp; Security</span></div><div><strong>Focused</strong><span>Unit Tests</span></div></div>
+</section>
+<section class="artifact-actions">
+<div><h2>Artifact Files</h2><p>Compare the original course submission with the enhanced CS 499 version.</p></div>
+<div class="button-group"><a class="button secondary" href="artifacts/software-design/CS360_WeightTracker_Original.zip">Original artifact (.zip)</a><a class="button" href="artifacts/software-design/CS360_WeightTracker_Enhanced.zip">Enhanced artifact (.zip)</a><a class="button secondary" href="artifacts/software-design/CS360_WeightTracker_Narrative_Isaiah_Moore.docx">Narrative (.docx)</a></div>
+</section>
+<section class="highlights"><div class="section-heading"><p class="eyebrow">Enhancement Highlights</p><h2>What changed</h2></div><ul><li><strong>Separated responsibilities:</strong> repository classes reduce direct database work inside Android activities.</li><li><strong>Protected credentials:</strong> plain-text password handling was replaced with salted password hashing.</li><li><strong>Scoped user data:</strong> weights, goals, and notification preferences are associated with the logged-in user.</li><li><strong>Improved validation:</strong> dedicated validators reject invalid login, registration, weight, and goal input before storage.</li><li><strong>Added testable logic:</strong> JUnit tests cover input validation, password verification, salt behavior, and goal-checking logic.</li></ul></section>
+<section class="prose narrative">
+<div class="section-heading"><p class="eyebrow">Artifact Narrative</p><h2>Enhancement narrative</h2></div>
+<section class="narrative-section"><h2>Artifact Description</h2>
+<p>The artifact I selected for this enhancement is my Weight Tracking Application, which was originally created in CS-360 Mobile Architecture and Programming in 2025. This artifact is an Android mobile application that allows users to create an account, log in, add daily weight entries, set a goal weight, view their progress, and manage notification preferences. The original version demonstrated basic mobile development skills through Android activities, SQLite database storage, user input handling, and screen navigation.</p>
+<p>For CS-499, I enhanced this artifact by improving the application’s structure, security, validation, and data management. The enhanced version keeps the original purpose of the app but improves the way the code is organized and how user data is handled.</p>
+</section>
+<section class="narrative-section"><h2>Summary of Changes</h2>
+<p>The enhanced version of the Weight Tracking Application includes several major improvements from the original CS-360 version. I added repository classes to separate database operations from the Android activity classes, which improved the organization and maintainability of the code. I added validation classes for login, registration, weight entries, and goal weight entries so user input is checked before being processed or stored. I improved account security by replacing plain-text password handling with salted password hashing. I also updated the database design so weight records, goal weights, and notification preferences are tied to the logged-in user. In addition, I added session management so the app can remember the current user, changed the Notifications screen into a Settings screen, and moved the Log Out option into Settings to improve the user experience.</p>
+</section>
+<section class="narrative-section"><h2>Justification for Inclusion in the ePortfolio</h2>
+<p>I selected this artifact for my ePortfolio because it shows my growth as a software developer. The original Weight Tracking Application was a complete mobile app, but it also had areas that could be improved. Much of the original logic was handled directly inside the activity classes, which worked for the original assignment but made the application harder to maintain, test, and expand. By enhancing this artifact, I was able to show that I can review older work, identify weaknesses, and improve the design of an existing application.</p>
+<p>The enhanced version showcases my software development skills through better separation of concerns. I added repository classes to separate database operations from the user interface, which makes the code easier to understand and update. I also added validation classes for login, registration, weight entries, and goal weight entries. This improves reliability because user input is checked before it is processed or stored.</p>
+<p>I also improved the application’s security and data handling. The original application used a simpler approach to login credentials, while the enhanced version uses salted password hashing. I also improved the database structure so weights, goals, and notification preferences are tied to the logged-in user. This makes the application more realistic because each user’s data is handled separately. In addition, I changed the notification screen into a more general settings screen and placed the logout option there, which creates a cleaner user experience.</p>
+<p>I included this artifact because it demonstrates several important software engineering abilities: mobile application development, database interaction, input validation, secure coding practices, refactoring, and maintainable design. The artifact was improved not only by adding functionality, but by making the internal structure stronger and more professional.</p>
+</section>
+<section class="narrative-section"><h2>Course Outcomes</h2>
+<p>This enhancement helped me meet the course outcomes I planned to address in Module One. The main outcome connected to this artifact is software design and engineering. I improved the structure of the application by separating responsibilities between activities, repositories, validators, session management, and security utilities. This shows my ability to use well-founded software engineering practices to improve an existing application.</p>
+<p>This enhancement also supports the security outcome because I improved how the application handles user credentials and user-specific data. Adding password hashing and separating user data made the app more secure than the original version. While this artifact is still an academic mobile app, the changes show a stronger understanding of secure development practices.</p>
+<p>At this point, I do not have major updates to my outcome-coverage plan. This artifact still fits best under software design and engineering, with additional support for security. My other CS-499 artifacts will help provide stronger coverage of algorithms, data structures, and databases so that the final ePortfolio demonstrates a balanced set of computer science skills.</p>
+</section>
+<section class="narrative-section"><h2>Reflection on the Enhancement Process</h2>
+<p>The process of enhancing this artifact helped me understand the importance of maintainable software design. When I originally created the app, my main focus was getting the required features working. During the enhancement process, I had to look at the project from a different perspective. Instead of only asking whether the app worked, I had to ask whether the code was organized, secure, reusable, and easy to maintain.</p>
+<p>One important lesson I learned is that meaningful software improvements are not always visible on the screen. Some of the most important changes were behind the scenes, such as adding repositories, validation classes, password hashing, session management, and user-specific data handling. These changes may not completely change how the app looks, but they make the application stronger and more realistic.</p>
+<p>One challenge I faced was improving the app without overcomplicating it. Since this was originally a CS-360 project, I wanted the enhanced version to still feel connected to the original artifact. I had to balance making the project more advanced with keeping it understandable and realistic. Another challenge was adjusting the layout after adding logout functionality. The original placement caused the logout button to interfere with another button, so I moved logout into a settings screen. This was a good reminder that improving software often involves both code changes and design decisions.</p>
+<p>Overall, this enhancement helped me become more confident in refactoring and improving existing code. I learned that reviewing older work can reveal many opportunities for improvement, especially in structure, security, validation, and data handling. The final enhanced artifact better represents my current abilities as a developer and shows how I have grown since the original CS-360 assignment.</p>
+</section>
+</section>
+
+
+</main>
+<footer><p>Isaiah Moore • CS 499 Computer Science Capstone • Southern New Hampshire University</p></footer>
+</body>
+</html>

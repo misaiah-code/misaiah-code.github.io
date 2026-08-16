@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="CS 499 Computer Science ePortfolio for Isaiah Moore">
+<title>ABCU Advising Course Planner | Isaiah Moore</title>
+<link rel="stylesheet" href="assets/styles.css">
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header><nav class="site-nav" aria-label="Main navigation">
+<a class="brand" href="index.html">Isaiah Moore <span>CS 499 ePortfolio</span></a>
+<div class="nav-links">
+<a href="index.html">Self-Assessment</a>
+<a href="code-review.html">Code Review</a>
+<a href="software-design.html">Software Design</a>
+<a href="algorithms.html" aria-current="page">Algorithms</a>
+<a href="databases.html">Databases</a>
+</div>
+</nav></header>
+<main id="main">
+<section class="hero compact">
+<div class="hero-copy"><p class="eyebrow">Algorithms &amp; Data Structures</p><h1>ABCU Advising Course Planner</h1><p class="lede">A C++ advising program enhanced with a hybrid data-structure design, stronger file validation, safer ownership, explicit complexity analysis, and repeatable self-tests.</p></div>
+</section>
+
+<section class="project-overview">
+<div class="overview-copy"><p class="eyebrow">CS 300 • Algorithms &amp; Data Structures</p><h2>ABCU Advising Course Planner</h2><p>A C++ advising program enhanced with a hybrid data-structure design, stronger file validation, safer ownership, explicit complexity analysis, and repeatable self-tests.</p><div class="chip-row"><span>C++17</span><span>Binary Search Tree</span><span>unordered_map</span><span>Validation</span><span>Testing</span></div></div>
+<div class="metric-grid"><div><strong>13</strong><span>Self-Tests</span></div><div><strong>Avg. O(1)</strong><span>Direct Lookup</span></div><div><strong>O(n)</strong><span>Ordered Output</span></div></div>
+</section>
+<section class="artifact-actions">
+<div><h2>Artifact Files</h2><p>Compare the original course submission with the enhanced CS 499 version.</p></div>
+<div class="button-group"><a class="button secondary" href="artifacts/algorithms/CS300_ABCU_Original.zip">Original artifact (.zip)</a><a class="button" href="artifacts/algorithms/CS300_ABCU_Enhanced.zip">Enhanced artifact (.zip)</a><a class="button secondary" href="artifacts/algorithms/CS300_ABCU_Narrative_Isaiah_Moore.docx">Narrative (.docx)</a></div>
+</section>
+<section class="highlights"><div class="section-heading"><p class="eyebrow">Enhancement Highlights</p><h2>What changed</h2></div><ul><li><strong>Hybrid data structures:</strong> the BST remains responsible for ordered traversal while an unordered_map handles direct lookup and validation.</li><li><strong>Normalized input:</strong> course identifiers are trimmed, uppercased, and standardized before storage or search.</li><li><strong>Validation reporting:</strong> malformed records, duplicates, blank lines, and missing prerequisites are detected and summarized.</li><li><strong>Safer memory ownership:</strong> std::unique_ptr replaces unmanaged tree-node ownership.</li><li><strong>Repeatable verification:</strong> thirteen built-in self-tests exercise valid and invalid loading, normalized search, duplicates, prerequisites, and ordering.</li></ul><div class="complexity-table"><div><span>Operation</span><strong>Expected complexity</strong></div><div><span>Hash-map direct lookup</span><strong>Average O(1)</strong></div><div><span>BST insert/search</span><strong>Average O(log n), worst O(n)</strong></div><div><span>In-order traversal</span><strong>O(n)</strong></div></div></section>
+<section class="prose narrative">
+<div class="section-heading"><p class="eyebrow">Artifact Narrative</p><h2>Enhancement narrative</h2></div>
+<section class="narrative-section"><h2>Artifact Description</h2>
+<p>The artifact I selected for this enhancement is my ABCU Advising Course Planner, which was originally created in CS-300 Data Structures and Algorithms in 2025. It is a C++ console application that allows a user to load course information from a file, print the courses in alphanumeric order, search for an individual course, and view its prerequisites. The original version demonstrated basic file handling, searching, binary search tree operations, and in-order traversal.</p>
+<p>For CS-499, I enhanced the application’s data structures, validation, memory management, and testing. The program still performs the same general functions, but its internal design is now safer, more efficient, and more reliable.</p>
+</section>
+<section class="narrative-section"><h2>Justification for Inclusion in the ePortfolio and Summary of Changes</h2>
+<p>I selected this artifact because it demonstrates my growth in algorithms, data structures, and C++ programming. The original project met the requirements of CS-300, but it depended entirely on a binary search tree, used raw pointers, provided limited validation, and did not include a repeatable testing process. Enhancing the project gave me an opportunity to evaluate those weaknesses and apply concepts I have learned since originally completing it.</p>
+<p>One of the most important improvements was the use of a hybrid data-structure design. I retained the binary search tree because its in-order traversal naturally displays courses in alphanumeric order. However, I also added an unordered_map for direct course searches, duplicate detection, and prerequisite validation. This improved average search performance while preserving the tree traversal that made the original artifact relevant to the algorithms and data structures category.</p>
+<p>This design showcases my ability to evaluate the strengths and limitations of different structures. A binary search tree can provide efficient searching when reasonably balanced, but an unbalanced tree may require O(n) time in the worst case. An unordered map provides average O(1) lookup time, making it better suited for repeated direct searches and validation. Rather than replacing the original structure, I assigned each structure a purpose based on the operations the application needed to perform.</p>
+<p>I also improved how the program handles external data. The enhanced loader trims whitespace, normalizes course numbers, safely handles trailing commas, and rejects records that are missing required information. It also detects invalid course numbers, duplicate courses, self-referencing prerequisites, and prerequisites that do not exist in the catalog. A loading summary reports the number of valid courses and any problems found in the input file.</p>
+<p>Memory management was another important improvement. The original binary search tree used raw pointers, which created the possibility of memory leaks and unsafe copying. I replaced the raw node pointers with unique_ptr, allowing the program to manage ownership and release tree nodes automatically. I also added built-in self-tests covering valid files, malformed records, duplicate courses, missing prerequisites, normalized searches, empty input, and ordered traversal.</p>
+<p>I included this artifact because it demonstrates more than the ability to create a working program. It shows that I can revisit an existing solution, evaluate its performance and reliability, and improve it through appropriate data structures, modern C++ practices, validation, and testing.</p>
+</section>
+<section class="narrative-section"><h2>Course Outcomes</h2>
+<p>This enhancement met the course outcomes I planned to address in Module One. The primary outcome connected to this artifact was the ability to design and evaluate computing solutions using algorithmic principles and computer science practices. The hybrid design required me to compare the behavior and performance of a binary search tree and an unordered map, then select each structure for the tasks it handled most effectively.</p>
+<p>The enhancement also supports the software design and engineering outcome. I improved memory ownership, separated responsibilities within the program, created reusable normalization and validation functions, and made the loading process easier to test. These changes made the code more maintainable and reduced the risks associated with manual memory management.</p>
+<p>Although this is not primarily a security artifact, the enhancement also supports secure development practices. The program treats file contents and user input as untrusted data that must be validated before use. Invalid records are identified and reported rather than silently accepted.</p>
+<p>I do not have any major updates to my outcome-coverage plan. This artifact still provides my strongest coverage of algorithms and data structures, while my other artifacts provide stronger evidence of software engineering, databases, mobile development, and security.</p>
+</section>
+<section class="narrative-section"><h2>Reflection on the Enhancement Process</h2>
+<p>The process of enhancing this artifact helped me understand that selecting a data structure involves more than choosing one that can complete the task. A stronger design considers the operations the program performs and the performance characteristics of the available structures. The original binary search tree worked for both searching and ordered output, but it was not necessarily the best choice for every operation. Adding an unordered map showed me how multiple structures can work together within one application.</p>
+<p>One challenge was improving the program without removing the concepts that made it a valuable CS-300 artifact. Replacing the tree entirely with a hash-based structure would have improved direct searches, but it would also have removed the in-order traversal that demonstrated the original course objectives. Keeping the tree and adding the map created a better balance between preserving the original artifact and showing meaningful improvement.</p>
+<p>I also learned that validation sometimes requires examining the complete dataset rather than processing every relationship immediately. A prerequisite may refer to a course that appears later in the file. If the program checked for that course as soon as the first record was read, it could incorrectly report the prerequisite as missing. The enhanced application first loads the valid courses and then validates prerequisite relationships after the complete catalog has been created.</p>
+<p>Improving memory ownership was another valuable part of the process. Using raw pointers required manual cleanup and made copying the tree unsafe. Replacing them with unique_ptr made ownership clearer and allowed resources to be released automatically. This helped me better understand how modern C++ features can prevent errors rather than relying on the programmer to remember every cleanup operation.</p>
+<p>The testing process also changed how I approached the enhancement. The original project depended mainly on manual testing, which made it easier to overlook edge cases. Creating built-in self-tests required me to think about malformed data, duplicates, blank fields, missing prerequisites, input normalization, and empty catalogs. This made the program more dependable and gave me a repeatable way to confirm that later changes did not break existing behavior.</p>
+<p>Overall, this enhancement strengthened my understanding of data-structure selection, algorithm analysis, memory management, validation, and testing. The final artifact remains recognizable as the original ABCU Advising Course Planner, but it now better represents my current abilities as a computer science student and developer.</p>
+</section>
+</section>
+
+
+</main>
+<footer><p>Isaiah Moore • CS 499 Computer Science Capstone • Southern New Hampshire University</p></footer>
+</body>
+</html>
